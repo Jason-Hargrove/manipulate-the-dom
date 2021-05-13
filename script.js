@@ -13,25 +13,50 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
   };
   randomQuote();
-  
-  // Do all of your work inside the document.addEventListener  
+
+  // Do all of your work inside the document.addEventListener
 
   // Part 1
+  const wordyTitle = () => {
+    let title = document.getElementById('main-title');
+    title.innerHTML = 'This is Shorter';
+  }
+  wordyTitle();
 
 
   // Part 2
-
+  const bodyChange = () => {
+    let newBody = document.querySelector('body');
+    newBody.style.backgroundColor = 'hsl(50, 100%, 50%)';
+  }
+  bodyChange();
 
   // Part 3
-
+  const removeFavThing = () => {
+    let newBody = document.querySelector('#favorite-things');
+    newBody.removeChild(newBody.lastElementChild);
+  }
+  removeFavThing();
 
   // Part 4
+  const specialSizeChange = () => {
+    const sizeChange = document.querySelectorAll('.special-title');
+    sizeChange.forEach(function(i) {
+      i.style.fontSize = '2rem';
+    })
+  }
+  specialSizeChange ();
 
 
   // Part 5
+  let pastRaces = document.getElementById('past-races');
+      pastRaces.removeChild(pastRaces.children[3]);
 
 
   // Part 6
+    const newContent = document.createTextNode('St. Louis');
+    pastRaces.appendChild(newContent);
+
 
 
   // Part 7
