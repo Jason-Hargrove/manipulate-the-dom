@@ -47,27 +47,43 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   specialSizeChange ();
 
-
   // Part 5
-  let pastRaces = document.getElementById('past-races');
-      pastRaces.removeChild(pastRaces.children[3]);
-
-
-  // Part 6
+  const rmChicagoAddStLouis = () => {
+    let pastRaces = document.getElementById('past-races');
+    pastRaces.removeChild(pastRaces.children[3]);
+    // Part 6
     const newContent = document.createTextNode('St. Louis');
     pastRaces.appendChild(newContent);
-
-
+  }
+  rmChicagoAddStLouis();
 
   // Part 7
-
+  const newBlogPost = () => {
+    let mainDiv = document.querySelector('body > div.main');
+    let newDiv = document.createElement('div');
+    newDiv.setAttribute('class', 'blog-post');
+    newDiv.innerHTML = '<h2>ST. LOUIS</h2><p>I DROVE MY CAR OVER THE ARCH</p>';
+    mainDiv.appendChild(newDiv);
+  }
+  newBlogPost();
 
   // Part 8
-
+  const clickRandomQuote = () => {
+    const quoteBtn = document.querySelector('body > div.main > div#quote-title');
+    quoteBtn.addEventListener('click', randomQuote);
+  }
+  clickRandomQuote();
 
   // Part 9
-
-
-
-
+  // select all .blog-post class elements.
+  const blogPostEls = document.querySelectorAll('.blog-post');
+  // iterate through the list of .blog-post class elements.
+  for(let postEl of blogPostEls) {
+    postEl.addEventListener('mouseout', function() {
+      postEl.classList.toggle('purple');
+    });
+    postEl.addEventListener('mouseenter', function() {
+      postEl.classList.toggle('red');
+    });
+  }
 });
